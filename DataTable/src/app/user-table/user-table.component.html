@@ -1,0 +1,33 @@
+<h1>User Table</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th (click)="onSort('id')">ID</th>
+      <th (click)="onSort('name')" >Name</th>
+      <th (click)="onSort('age')">Age</th>
+      <th (click)="onSort('occupation')">Occupation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of paginatedUsers()">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.occupation }}</td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<select [ngModel]="pageSize()" (ngModelChange)="onPageSizeChange($event)">
+  <option [value]="5">5</option>
+  <option [value]="10">10</option>
+  <option [value]="20">20</option>
+</select>
+<button (click)="onPreviousPage()" [disabled]="currentPage() === 1">
+  Previous
+</button>
+<span>{{ currentPage() }} of {{ totalPages() }} </span>
+<button (click)="onNextPage()" [disabled]="currentPage() === totalPages()">
+  Next
+</button>
