@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
-import { KeyboardComponent } from '../keyboard/keyboard.component';
 
 @Component({
   selector: 'app-game-table',
