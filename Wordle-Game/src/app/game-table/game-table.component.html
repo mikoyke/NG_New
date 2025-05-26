@@ -1,0 +1,19 @@
+<div>
+  <div *ngFor="let row of table; let i = index" class="table">
+    <div
+      *ngFor="let cell of row; let j = index"
+      class="cell"
+      [ngClass]="cell.state"
+    >
+      {{ cell.letter }}
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let row of keyboard" class="keyboard">
+  <div *ngFor="let key of row" class="key" (click)="onClick(key)">
+    {{ key }}
+  </div>
+</div>
+
+<button (click)="resetGame()">Play Again</button>
